@@ -1,5 +1,6 @@
-shopify-webhook-commander
-=========================
+# WIP
+
+## shopify-webhook-commander
 
 Set up Shopify webhook destinations from the command line
 
@@ -9,11 +10,16 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
+
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
@@ -25,11 +31,15 @@ USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`shopify-webhook-commander hello [FILE]`](#shopify-webhook-commander-hello-file)
-* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+
+- [`shopify-webhook-commander hello [FILE]`](#shopify-webhook-commander-hello-file)
+- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
 
 ## `shopify-webhook-commander hello [FILE]`
 
@@ -67,4 +77,5 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
 <!-- commandsstop -->
