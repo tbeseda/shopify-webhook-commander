@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command';
-import * as fs from 'fs-extra';
-import * as path from 'path';
+import fs from 'fs-extra';
+import path from 'path';
+import cli from 'cli-ux';
 
 interface UserConfig {
   shopify?: string;
@@ -35,30 +36,53 @@ export default class Config extends Command {
         path.join(this.config.configDir, 'config.json')
       );
     } catch (err) {
-      if (err.code === 'ENOENT') {
-        this.debug('No existing configuration');
-      }
+      if (err.code === 'ENOENT') this.debug('No existing configuration');
     }
+
+    let service = args.service;
+    let token = flags.token;
 
     switch (args.operation) {
       case 'set':
-        if (args.service === 'shopify' && flags.token) {
-          userConfig.shopify = flags.token;
+        if (!service)
+          service = await cli.prompt('Service to set? probably "shopify"');
+        if (!token) token = await cli.prompt('Token', { type: 'hide' });
+
+        if (service.toLowerCase() === 'shopify') {
+          userConfig.shopify = token;
           this.log('Setting Shopify token.');
         } else {
-          this.error('Specify service and token.');
+          this.error(`Unknown service: ${service}`);
         }
+
         break;
       case 'unset':
-        if (args.service === 'shopify') {
+        if (!service)
+          service = await cli.prompt('Service to unset? probably "shopify"');
+
+        if (service.toLowerCase() === 'shopify') {
           delete userConfig.shopify;
           this.log('Deleting Shopify token.');
         } else {
-          this.error('Unsure what to unset, specify service.');
+          this.error(`Unknown service: ${service}`);
         }
         break;
       case 'reveal':
-        this.log(JSON.stringify(userConfig, null, 2));
+        if (userConfig && Object.keys(userConfig).length) {
+          if (await cli.confirm('Print config in clear text? (y/n)')) {
+            const rows = [];
+            for (const [key, value] of Object.entries(userConfig)) {
+              rows.push({ Setting: key, Value: value });
+            }
+            cli.table(
+              rows,
+              { Setting: { minWidth: 12 }, Value: { minWidth: 20 } },
+              { printLine: this.log }
+            );
+          }
+        } else {
+          this.log('No configuration to unset.');
+        }
         break;
       default:
         break;
