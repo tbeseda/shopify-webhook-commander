@@ -25,7 +25,9 @@ Hello world from ./src/hello.ts!
     const { args, flags } = this.parse(Hello);
     let userConfig;
     try {
-      userConfig = await fs.readJSON(path.join(this.config.configDir, 'config.json'));
+      userConfig = await fs.readJSON(
+        path.join(this.config.configDir, 'config.json')
+      );
     } catch (err) {
       if (err.code === 'ENOENT') {
         this.debug('Missing configuration');

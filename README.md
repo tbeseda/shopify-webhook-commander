@@ -10,16 +10,14 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
-
+* [WIP](#wip)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
@@ -31,15 +29,30 @@ USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
+* [`shopify-webhook-commander config [FILE]`](#shopify-webhook-commander-config-file)
+* [`shopify-webhook-commander hello [FILE]`](#shopify-webhook-commander-hello-file)
+* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
 
-- [`shopify-webhook-commander hello [FILE]`](#shopify-webhook-commander-hello-file)
-- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+## `shopify-webhook-commander config [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ shopify-webhook-commander config [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/config.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.0/src/commands/config.ts)_
 
 ## `shopify-webhook-commander hello [FILE]`
 
@@ -56,7 +69,7 @@ OPTIONS
 
 EXAMPLE
   $ shopify-webhook-commander hello
-  hello world from ./src/hello.ts!
+  Hello world from ./src/hello.ts!
 ```
 
 _See code: [src/commands/hello.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.0/src/commands/hello.ts)_
@@ -77,5 +90,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
-
 <!-- commandsstop -->
