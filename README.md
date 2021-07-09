@@ -10,37 +10,33 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-
-- [WIP](#wip)
-- [Usage](#usage)
-- [Commands](#commands)
+* [WIP](#wip)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
 running command...
 $ shopify-webhook-commander (-v|--version|version)
-shopify-webhook-commander/0.0.0 darwin-arm64 node-v16.4.1
+shopify-webhook-commander/0.0.1 darwin-arm64 node-v16.4.1
 $ shopify-webhook-commander --help [COMMAND]
 USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`shopify-webhook-commander config OPERATION [SERVICE]`](#shopify-webhook-commander-config-operation-service)
-- [`shopify-webhook-commander webhook [FILE]`](#shopify-webhook-commander-webhook-file)
-- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+* [`shopify-webhook-commander config OPERATION [SERVICE]`](#shopify-webhook-commander-config-operation-service)
+* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+* [`shopify-webhook-commander webhook [OPERATION]`](#shopify-webhook-commander-webhook-operation)
 
 ## `shopify-webhook-commander config OPERATION [SERVICE]`
 
@@ -51,11 +47,13 @@ USAGE
   $ shopify-webhook-commander config OPERATION [SERVICE]
 
 OPTIONS
-  -h, --help     show CLI help
-  --token=token
+  -h, --help       show CLI help
+  --key=key
+  --secret=secret
+  --shop=shop
 ```
 
-_See code: [src/commands/config.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.0/src/commands/config.ts)_
+_See code: [src/commands/config.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.1/src/commands/config.ts)_
 
 ## `shopify-webhook-commander help [COMMAND]`
 
@@ -74,20 +72,20 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
-## `shopify-webhook-commander webhook [FILE]`
+## `shopify-webhook-commander webhook [OPERATION]`
 
-describe the command here
+List, create, and delete Shopify webhooks
 
 ```
 USAGE
-  $ shopify-webhook-commander webhook [FILE]
+  $ shopify-webhook-commander webhook [OPERATION]
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help                 show CLI help
+  --callbackUrl=callbackUrl
+  --id=id
+  --topic=topic
 ```
 
-_See code: [src/commands/webhook.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.0/src/commands/webhook.ts)_
-
+_See code: [src/commands/webhook.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.1/src/commands/webhook.ts)_
 <!-- commandsstop -->
