@@ -10,14 +10,16 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-* [WIP](#wip)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [WIP](#wip)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
@@ -29,50 +31,31 @@ USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`shopify-webhook-commander config [FILE]`](#shopify-webhook-commander-config-file)
-* [`shopify-webhook-commander hello [FILE]`](#shopify-webhook-commander-hello-file)
-* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
 
-## `shopify-webhook-commander config [FILE]`
+- [`shopify-webhook-commander config OPERATION [SERVICE]`](#shopify-webhook-commander-config-operation-service)
+- [`shopify-webhook-commander webhook [FILE]`](#shopify-webhook-commander-webhook-file)
+- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
 
-describe the command here
+## `shopify-webhook-commander config OPERATION [SERVICE]`
+
+configure Shopify Webhook Commander
 
 ```
 USAGE
-  $ shopify-webhook-commander config [FILE]
+  $ shopify-webhook-commander config OPERATION [SERVICE]
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help     show CLI help
+  --token=token
 ```
 
 _See code: [src/commands/config.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.0/src/commands/config.ts)_
-
-## `shopify-webhook-commander hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ shopify-webhook-commander hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ shopify-webhook-commander hello
-  Hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.0/src/commands/hello.ts)_
 
 ## `shopify-webhook-commander help [COMMAND]`
 
@@ -90,4 +73,21 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
+## `shopify-webhook-commander webhook [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ shopify-webhook-commander webhook [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/webhook.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.0/src/commands/webhook.ts)_
+
 <!-- commandsstop -->

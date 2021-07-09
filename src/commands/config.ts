@@ -1,18 +1,24 @@
-import { Command, flags } from '@oclif/command';
 import fs from 'fs-extra';
 import path from 'path';
+import { Command, flags } from '@oclif/command';
 import cli from 'cli-ux';
 
+// TODO: abstract UserConfig into separate class
 interface UserConfig {
-  shopify?: string;
+  shopify?: {
+    shop?: string;
+    secret?: string;
+  };
 }
 
 export default class Config extends Command {
-  static description = 'describe the command here';
+  static description = 'configure Shopify Webhook Commander';
 
   static flags = {
     help: flags.help({ char: 'h' }),
-    token: flags.string(),
+    shop: flags.string(),
+    key: flags.string(),
+    secret: flags.string(),
   };
 
   static args = [
@@ -23,11 +29,12 @@ export default class Config extends Command {
     },
     {
       name: 'service',
-      options: ['shopify'],
+      options: ['shopify', 'hookdeck'],
+      default: 'shopify',
     },
   ];
 
-  async run() {
+  async run(): Promise<void> {
     const { args, flags } = this.parse(Config);
 
     let userConfig: UserConfig = {};
@@ -40,16 +47,16 @@ export default class Config extends Command {
     }
 
     let service = args.service;
-    let token = flags.token;
+    let shop = flags.shop;
+    let secret = flags.secret;
 
     switch (args.operation) {
       case 'set':
-        if (!service)
-          service = await cli.prompt('Service to set? probably "shopify"');
-        if (!token) token = await cli.prompt('Token', { type: 'hide' });
+        if (!shop) shop = await cli.prompt('Shop (with .myshopify.com)');
+        if (!secret) secret = await cli.prompt('Password', { type: 'hide' });
 
         if (service.toLowerCase() === 'shopify') {
-          userConfig.shopify = token;
+          userConfig.shopify = { shop, secret };
           this.log('Setting Shopify token.');
         } else {
           this.error(`Unknown service: ${service}`);
@@ -64,7 +71,7 @@ export default class Config extends Command {
           delete userConfig.shopify;
           this.log('Deleting Shopify token.');
         } else {
-          this.error(`Unknown service: ${service}`);
+          this.error(`Unsupported service: ${service}`);
         }
         break;
       case 'reveal':
