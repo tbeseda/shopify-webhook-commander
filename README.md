@@ -1,4 +1,32 @@
-# WIP
+# Shopify Webhook Commander
+
+## Install
+
+#### Unavailable! (WIP)
+
+This package hasn't been published just yet.
+
+```sh-session
+$ npm i -g shopify-webhook-commander
+```
+
+## Demonstration
+
+```sh-session
+$ shopify-webhook-commander config set
+  Shop (with .myshopify.com): tbeseda.myshopify.com
+  Password: ****************
+
+$ shopify-webhook-commander webhook list
+  Connected to "tbeseda Zero"
+  []
+
+$ shopify-webhook-commander webhook create
+  Webhook topic: ORDERS_CREATE
+  Callback URL: https://ingest.my-app.com/
+```
+
+# `oclif` Generated Docs:
 
 ## shopify-webhook-commander
 
@@ -10,14 +38,15 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-* [WIP](#wip)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
@@ -29,14 +58,16 @@ USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`shopify-webhook-commander config OPERATION [SERVICE]`](#shopify-webhook-commander-config-operation-service)
-* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
-* [`shopify-webhook-commander webhook [OPERATION]`](#shopify-webhook-commander-webhook-operation)
+
+- [`shopify-webhook-commander config OPERATION [SERVICE]`](#shopify-webhook-commander-config-operation-service)
+- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+- [`shopify-webhook-commander webhook [OPERATION]`](#shopify-webhook-commander-webhook-operation)
 
 ## `shopify-webhook-commander config OPERATION [SERVICE]`
 
@@ -88,4 +119,5 @@ OPTIONS
 ```
 
 _See code: [src/commands/webhook.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.1/src/commands/webhook.ts)_
+
 <!-- commandsstop -->
