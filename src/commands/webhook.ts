@@ -2,6 +2,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import { Command, flags } from '@oclif/command';
 import cli from 'cli-ux';
+
 import ShopifyClient from '../lib/ShopifyClient';
 
 interface UserConfig {
@@ -46,16 +47,25 @@ export default class Webhook extends Command {
 
     const shopName = await client.getShopName();
 
-    this.log(`Connected to "${shopName}"`);
+    this.debug(`Connected to "${shopName}"`);
 
     let topic = flags.topic;
     let callbackUrl = flags.callbackUrl;
-    // let webhookId = flags.id;
+    let webhookId = flags.id;
 
     switch (args.operation) {
       case 'list':
-        const webhooks = await client.listWebhooks();
-        this.log(JSON.stringify(webhooks, null, 2));
+        const webhooksResult = await client.listWebhooks();
+
+        const webhooks = webhooksResult.map((nodes) => {
+          return nodes.node;
+        });
+
+        cli.table(webhooks, {
+          topic: { minWidth: 15 },
+          endpoint: { minWidth: 20, get: (row) => row.endpoint.callbackUrl },
+          id: { header: 'ID' },
+        });
         break;
       case 'create':
         if (!topic) topic = await cli.prompt('Webhook topic');
@@ -63,11 +73,16 @@ export default class Webhook extends Command {
 
         if (!topic || !callbackUrl) this.error('Missing topic or callback URL');
 
-        const result = await client.createWebhook(topic, callbackUrl);
-        this.log(JSON.stringify(result.body, null, 2));
+        const createResult = await client.createWebhook(topic, callbackUrl);
+        this.log(`Created ${createResult.webhookSubscription.id}`);
         break;
       case 'delete':
-        this.log('WIP');
+        if (!webhookId) webhookId = await cli.prompt('Webhook id to delete');
+
+        if (!webhookId) this.error('Missing webhook id');
+
+        const deleteResult = await client.deleteWebhook(webhookId);
+        this.log(`Deleted ${deleteResult.deletedWebhookSubscriptionId}`);
         break;
       default:
         this.log('Choose an operation; list, create, delete');

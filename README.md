@@ -26,6 +26,10 @@ $ shopify-webhook-commander webhook create
   Callback URL: https://ingest.my-app.com/
 ```
 
+## Shopify Webhook Topics
+
+https://shopify.dev/api/admin/graphql/reference/events/webhooksubscriptiontopic
+
 # `oclif` Generated Docs:
 
 ## shopify-webhook-commander

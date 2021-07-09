@@ -38,7 +38,7 @@ export default class ShopifyClient {
     return response.data.shop.name;
   }
 
-  async listWebhooks(): Promise<[Record<string, unknown>]> {
+  async listWebhooks(): Promise<any[]> {
     // TODO: paginate webhooks
     const query = gql`
       query {
@@ -47,6 +47,19 @@ export default class ShopifyClient {
             node {
               id
               topic
+              endpoint {
+                __typename
+                ... on WebhookHttpEndpoint {
+                  callbackUrl
+                }
+                ... on WebhookEventBridgeEndpoint {
+                  arn
+                }
+                ... on WebhookPubSubEndpoint {
+                  pubSubProject
+                  pubSubTopic
+                }
+              }
             }
           }
         }
@@ -58,10 +71,7 @@ export default class ShopifyClient {
     return response.data.webhookSubscriptions.edges;
   }
 
-  async createWebhook(
-    topic: string,
-    callbackUrl: string
-  ): Promise<Record<string, unknown>> {
+  async createWebhook(topic: string, callbackUrl: string): Promise<any> {
     const mutation = gql`
       mutation {
         webhookSubscriptionCreate(
@@ -81,21 +91,24 @@ export default class ShopifyClient {
 
     const response = await this.client.mutate({ mutation });
 
-    return response.data.createWebhook.webhook;
+    return response.data.webhookSubscriptionCreate;
   }
 
-  async deleteWebhook(id: string): Promise<void> {
-    const query = gql`
+  async deleteWebhook(id: string): Promise<any> {
+    const mutation = gql`
       mutation {
         webhookSubscriptionDelete(id: "${id}") {
           userErrors {
             field
             message
           }
+          deletedWebhookSubscriptionId
         }
       }
     `;
 
-    await this.client.query({ query });
+    const response = await this.client.mutate({ mutation });
+
+    return response.data.webhookSubscriptionDelete;
   }
 }
