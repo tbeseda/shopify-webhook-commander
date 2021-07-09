@@ -42,36 +42,34 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [Shopify Webhook Commander](#shopify-webhook-commander)
+* [`oclif` Generated Docs:](#oclif-generated-docs)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
 running command...
 $ shopify-webhook-commander (-v|--version|version)
-shopify-webhook-commander/0.0.1 darwin-arm64 node-v16.4.1
+shopify-webhook-commander/0.1.0 darwin-arm64 node-v16.4.1
 $ shopify-webhook-commander --help [COMMAND]
 USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`shopify-webhook-commander config OPERATION [SERVICE]`](#shopify-webhook-commander-config-operation-service)
-- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
-- [`shopify-webhook-commander webhook [OPERATION]`](#shopify-webhook-commander-webhook-operation)
+* [`shopify-webhook-commander config OPERATION [SERVICE]`](#shopify-webhook-commander-config-operation-service)
+* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+* [`shopify-webhook-commander webhook [OPERATION]`](#shopify-webhook-commander-webhook-operation)
 
 ## `shopify-webhook-commander config OPERATION [SERVICE]`
 
@@ -88,7 +86,7 @@ OPTIONS
   --shop=shop
 ```
 
-_See code: [src/commands/config.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.1/src/commands/config.ts)_
+_See code: [src/commands/config.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/config.ts)_
 
 ## `shopify-webhook-commander help [COMMAND]`
 
@@ -122,6 +120,5 @@ OPTIONS
   --topic=topic
 ```
 
-_See code: [src/commands/webhook.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.0.1/src/commands/webhook.ts)_
-
+_See code: [src/commands/webhook.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/webhook.ts)_
 <!-- commandsstop -->

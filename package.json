@@ -1,7 +1,7 @@
 {
   "name": "shopify-webhook-commander",
   "description": "Set up Shopify webhook destinations from the command line",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Taylor Beseda @tbeseda",
   "bin": {
     "shopify-webhook-commander": "./bin/run"
