@@ -8,7 +8,7 @@
 $ npm i -g shopify-webhook-commander
 ```
 
-## Demonstration
+## How to command Shopify webhooks
 
 ```sh-session
 $ shopify-webhook-commander config:set
