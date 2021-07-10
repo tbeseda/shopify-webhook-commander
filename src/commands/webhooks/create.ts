@@ -5,7 +5,7 @@ import BaseCommand from '../../base';
 import ShopifyClient from '../../lib/ShopifyClient';
 
 export default class WebhooksCreate extends BaseCommand {
-  static description = 'describe the command here';
+  static description = 'create a webhook subscription';
 
   static flags = {
     help: flags.help({ char: 'h' }),

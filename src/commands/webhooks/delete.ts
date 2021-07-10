@@ -5,7 +5,7 @@ import BaseCommand from '../../base';
 import ShopifyClient from '../../lib/ShopifyClient';
 
 export default class WebhooksDelete extends BaseCommand {
-  static description = 'describe the command here';
+  static description = 'delete a webhook given a resource id';
 
   static flags = {
     help: flags.help({ char: 'h' }),
