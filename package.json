@@ -1,6 +1,6 @@
 {
   "name": "shopify-webhook-commander",
-  "description": "Set up Shopify webhook destinations from the command line",
+  "description": "Set up Shopify webhook subscriptions from the command line",
   "version": "0.2.0",
   "author": "Taylor Beseda @tbeseda",
   "bin": {
@@ -50,7 +50,10 @@
   ],
   "homepage": "https://github.com/tbeseda/shopify-webhook-commander",
   "keywords": [
-    "oclif"
+    "oclif",
+    "Shopify",
+    "webhook",
+    "cli"
   ],
   "license": "MIT",
   "main": "lib/index.js",
