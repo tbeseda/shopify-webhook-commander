@@ -22,7 +22,7 @@ $ shopify-webhook-commander webhook:create
 
 $ shopify-webhook-commander webhook:list
   Webhooks for "tbeseda"
-    Topic          Endpoint                                                   ID
+    Topic          Endpoint                   ID
     ────────────── ────────────────────────── ───────────────────────────────────────────────
     SHOP_UPDATE    https://ingest.my-app.com/ gid://shopify/WebhookSubscription/1021513859211
 
@@ -49,15 +49,17 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-* [Shopify Webhook Commander](#shopify-webhook-commander)
-* [`oclif` Generated Docs:](#oclif-generated-docs)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Shopify Webhook Commander](#shopify-webhook-commander)
+- [`oclif` Generated Docs:](#oclif-generated-docs)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
@@ -69,18 +71,20 @@ USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`shopify-webhook-commander config:reveal`](#shopify-webhook-commander-configreveal)
-* [`shopify-webhook-commander config:set`](#shopify-webhook-commander-configset)
-* [`shopify-webhook-commander config:unset`](#shopify-webhook-commander-configunset)
-* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
-* [`shopify-webhook-commander webhooks:create`](#shopify-webhook-commander-webhookscreate)
-* [`shopify-webhook-commander webhooks:delete`](#shopify-webhook-commander-webhooksdelete)
-* [`shopify-webhook-commander webhooks:list`](#shopify-webhook-commander-webhookslist)
+
+- [`shopify-webhook-commander config:reveal`](#shopify-webhook-commander-configreveal)
+- [`shopify-webhook-commander config:set`](#shopify-webhook-commander-configset)
+- [`shopify-webhook-commander config:unset`](#shopify-webhook-commander-configunset)
+- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+- [`shopify-webhook-commander webhooks:create`](#shopify-webhook-commander-webhookscreate)
+- [`shopify-webhook-commander webhooks:delete`](#shopify-webhook-commander-webhooksdelete)
+- [`shopify-webhook-commander webhooks:list`](#shopify-webhook-commander-webhookslist)
 
 ## `shopify-webhook-commander config:reveal`
 
@@ -188,4 +192,5 @@ OPTIONS
 ```
 
 _See code: [src/commands/webhooks/list.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.2.0/src/commands/webhooks/list.ts)_
+
 <!-- commandsstop -->
