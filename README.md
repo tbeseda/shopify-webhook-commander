@@ -49,42 +49,38 @@ Set up Shopify webhook destinations from the command line
 [![License](https://img.shields.io/npm/l/shopify-webhook-commander.svg)](https://github.com/tbeseda/shopify-webhook-commander/blob/master/package.json)
 
 <!-- toc -->
-
-- [Shopify Webhook Commander](#shopify-webhook-commander)
-- [`oclif` Generated Docs:](#oclif-generated-docs)
-- [Usage](#usage)
-- [Commands](#commands)
+* [Shopify Webhook Commander](#shopify-webhook-commander)
+* [`oclif` Generated Docs:](#oclif-generated-docs)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g shopify-webhook-commander
 $ shopify-webhook-commander COMMAND
 running command...
 $ shopify-webhook-commander (-v|--version|version)
-shopify-webhook-commander/0.1.0 darwin-arm64 node-v16.4.1
+shopify-webhook-commander/0.2.0 darwin-arm64 node-v16.4.1
 $ shopify-webhook-commander --help [COMMAND]
 USAGE
   $ shopify-webhook-commander COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`shopify-webhook-commander config:reveal`](#shopify-webhook-commander-configreveal)
-- [`shopify-webhook-commander config:set`](#shopify-webhook-commander-configset)
-- [`shopify-webhook-commander config:unset`](#shopify-webhook-commander-configunset)
-- [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
-- [`shopify-webhook-commander webhooks:create`](#shopify-webhook-commander-webhookscreate)
-- [`shopify-webhook-commander webhooks:delete`](#shopify-webhook-commander-webhooksdelete)
-- [`shopify-webhook-commander webhooks:list`](#shopify-webhook-commander-webhookslist)
+* [`shopify-webhook-commander config:reveal`](#shopify-webhook-commander-configreveal)
+* [`shopify-webhook-commander config:set`](#shopify-webhook-commander-configset)
+* [`shopify-webhook-commander config:unset`](#shopify-webhook-commander-configunset)
+* [`shopify-webhook-commander help [COMMAND]`](#shopify-webhook-commander-help-command)
+* [`shopify-webhook-commander webhooks:create`](#shopify-webhook-commander-webhookscreate)
+* [`shopify-webhook-commander webhooks:delete`](#shopify-webhook-commander-webhooksdelete)
+* [`shopify-webhook-commander webhooks:list`](#shopify-webhook-commander-webhookslist)
 
 ## `shopify-webhook-commander config:reveal`
 
@@ -99,7 +95,7 @@ OPTIONS
   -y, --yes   agree to reveal
 ```
 
-_See code: [src/commands/config/reveal.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/config/reveal.ts)_
+_See code: [src/commands/config/reveal.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.2.0/src/commands/config/reveal.ts)_
 
 ## `shopify-webhook-commander config:set`
 
@@ -115,7 +111,7 @@ OPTIONS
   --shop=shop
 ```
 
-_See code: [src/commands/config/set.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/config/set.ts)_
+_See code: [src/commands/config/set.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.2.0/src/commands/config/set.ts)_
 
 ## `shopify-webhook-commander config:unset`
 
@@ -129,7 +125,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/config/unset.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/config/unset.ts)_
+_See code: [src/commands/config/unset.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.2.0/src/commands/config/unset.ts)_
 
 ## `shopify-webhook-commander help [COMMAND]`
 
@@ -162,7 +158,7 @@ OPTIONS
   --topic=topic
 ```
 
-_See code: [src/commands/webhooks/create.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/webhooks/create.ts)_
+_See code: [src/commands/webhooks/create.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.2.0/src/commands/webhooks/create.ts)_
 
 ## `shopify-webhook-commander webhooks:delete`
 
@@ -177,7 +173,7 @@ OPTIONS
   --id=id
 ```
 
-_See code: [src/commands/webhooks/delete.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/webhooks/delete.ts)_
+_See code: [src/commands/webhooks/delete.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.2.0/src/commands/webhooks/delete.ts)_
 
 ## `shopify-webhook-commander webhooks:list`
 
@@ -191,6 +187,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/webhooks/list.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.1.0/src/commands/webhooks/list.ts)_
-
+_See code: [src/commands/webhooks/list.ts](https://github.com/tbeseda/shopify-webhook-commander/blob/v0.2.0/src/commands/webhooks/list.ts)_
 <!-- commandsstop -->
