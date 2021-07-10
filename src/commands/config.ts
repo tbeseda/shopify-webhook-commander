@@ -1,17 +1,11 @@
-import fs from 'fs-extra';
-import path from 'path';
-import { Command, flags } from '@oclif/command';
+// TODO: separate into separate commands in ./commands/
+
+import { flags } from '@oclif/command';
 import cli from 'cli-ux';
 
-// TODO: abstract UserConfig into separate class
-interface UserConfig {
-  shopify?: {
-    shop?: string;
-    secret?: string;
-  };
-}
+import BaseCommand from '../base';
 
-export default class Config extends Command {
+export default class Config extends BaseCommand {
   static description = 'configure Shopify Webhook Commander';
 
   static flags = {
@@ -37,15 +31,6 @@ export default class Config extends Command {
   async run(): Promise<void> {
     const { args, flags } = this.parse(Config);
 
-    let userConfig: UserConfig = {};
-    try {
-      userConfig = await fs.readJSON(
-        path.join(this.config.configDir, 'config.json')
-      );
-    } catch (err) {
-      if (err.code === 'ENOENT') this.debug('No existing configuration');
-    }
-
     let service = args.service;
     let shop = flags.shop;
     let secret = flags.secret;
@@ -55,8 +40,11 @@ export default class Config extends Command {
         if (!shop) shop = await cli.prompt('Shop (with .myshopify.com)');
         if (!secret) secret = await cli.prompt('Password', { type: 'hide' });
 
+        if (!shop || !secret)
+          this.error('You must provide a shop and password');
+
         if (service.toLowerCase() === 'shopify') {
-          userConfig.shopify = { shop, secret };
+          this.userConfig.config.shopify = { shop, secret };
           this.log('Setting Shopify token.');
         } else {
           this.error(`Unknown service: ${service}`);
@@ -68,17 +56,24 @@ export default class Config extends Command {
           service = await cli.prompt('Service to unset? probably "shopify"');
 
         if (service.toLowerCase() === 'shopify') {
-          delete userConfig.shopify;
+          delete this.userConfig.config.shopify;
           this.log('Deleting Shopify token.');
         } else {
           this.error(`Unsupported service: ${service}`);
         }
         break;
       case 'reveal':
-        if (userConfig && Object.keys(userConfig).length) {
-          if (await cli.confirm('Print config in clear text? (y/n)')) {
+        if (
+          this.userConfig.config.shopify &&
+          Object.keys(this.userConfig.config.shopify).length
+        ) {
+          const reveal = await cli.confirm('Print config in clear text? (y/n)');
+
+          if (reveal) {
             const rows = [];
-            for (const [key, value] of Object.entries(userConfig)) {
+            for (const [key, value] of Object.entries(
+              this.userConfig.config.shopify
+            )) {
               rows.push({ Setting: key, Value: value });
             }
             cli.table(
@@ -88,20 +83,11 @@ export default class Config extends Command {
             );
           }
         } else {
-          this.log('No configuration to unset.');
+          this.log('No configuration to reveal.');
         }
         break;
       default:
         break;
-    }
-
-    try {
-      await fs.outputJSON(
-        path.join(this.config.configDir, 'config.json'),
-        userConfig
-      );
-    } catch (err) {
-      this.error(err);
     }
   }
 }
